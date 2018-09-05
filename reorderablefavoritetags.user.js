@@ -65,7 +65,7 @@ with_jquery(function()
          {
             if ( oldAutocomplete ) $.fn.autocomplete = oldAutocomplete;
             if ( oldAutocompleter ) $.fn.Autocompleter = oldAutocompleter;
-            $(".js-watched-tag-list").sortable({helper: "clone", update: SaveOrder});
+            $(".js-watched-tag-list").sortable({helper: "clone", update: SaveOrder, items: ".js-tag"});
          });
       });
    });
@@ -96,6 +96,8 @@ with_jquery(function()
       {
          tagsOnPage.filter(function() { return this.textContent==tagOrder[i]}).prependTo(".js-watched-tag-list");
       }
+      
+      $(".js-watched-tag-list>.js-watched-edit-visible").prependTo(".js-watched-tag-list");
    }
    
    function SaveOrder()
